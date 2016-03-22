@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/albertpaulp/sundown.svg?branch=master)](https://travis-ci.org/albertpaulp/sundown)
 # Sundown
 
 Ruby temperature gem for your application.
