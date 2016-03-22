@@ -1,7 +1,8 @@
 require "codeclimate-test-reporter"
-require 'sundown'
+
 
 CodeClimate::TestReporter.start
+  require 'sundown'
 
   describe Sundown::Weather do
     it 'Temp.(Farenheit) in london should be a float' do
