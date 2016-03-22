@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "sundown"
   spec.version       = Sundown::VERSION
   spec.authors       = ["Albert Paul"]
-  spec.email         = ["albert.paul@ruby-software.com"]
+  spec.email         = ["albert.paul@gmail.com"]
   spec.summary       = %q{Yahoo weather wrapper for Ruby.}
-  spec.description   = %q{Ruby wrapper gem for Yahoo Weather API, compactible with Ruby and all ruby frameworks.}
+  spec.description   = %q{Ruby wrapper gem for Yahoo Weather API, works with both Rails(1.9.3 +) and Ruby.}
   spec.homepage      = "https://github.com/albertpaulp/sundown"
   spec.license       = "MIT"
 
@@ -19,7 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
-
 end
