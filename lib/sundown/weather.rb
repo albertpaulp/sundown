@@ -6,9 +6,13 @@ require 'sundown/location'
 module Sundown
   # Used to get weather information without caching, fire queries everytime.
   class Weather
-    def self.temperature(location)
+    def self.temperature(location, degree = 'f')
       location = Location.new(location)
-      location.temperature
+      if degree == 'f'
+        location.temperature
+      else
+        location.temperature('c')
+      end
     end
   end
 end

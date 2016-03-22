@@ -1,12 +1,17 @@
 module Sundown
-  # Main class to accomodate core-features.
+  # Main class to accomodate core-features, saves weather instance once called.
   class Location
     def initialize(location)
       @location = location
     end
 
-    def temperature
-      weather['query']['results']['channel']['item']['condition']['temp'].to_f
+    def temperature(degree = 'f')
+      if degree == 'f'
+        weather['query']['results']['channel']['item']['condition']['temp'].to_f
+      else
+        (weather['query']['results']['channel']['item']['condition']['temp']
+                                                           .to_f - 32) * 0.5556
+      end
     end
 
     def humidity
@@ -24,7 +29,7 @@ module Sundown
         url = URI.parse(domain)
         req = Net::HTTP::Get.new(url.request_uri)
         http = Net::HTTP.new(url.host, url.port)
-        http.use_ssl = (url.scheme == "https")
+        http.use_ssl = true
         response = http.request(req).body
         @weather = JSON.parse(response)
       end
