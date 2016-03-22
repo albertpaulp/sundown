@@ -1,5 +1,6 @@
-require "sundown/version"
+require 'sundown/version'
+require 'sundown/weather'
 
 module Sundown
-  # Your code goes here...
+
 end
