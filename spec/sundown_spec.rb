@@ -1,3 +1,5 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 require 'sundown'
 
 describe Sundown::Weather do
