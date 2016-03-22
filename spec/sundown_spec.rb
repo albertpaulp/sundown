@@ -26,4 +26,10 @@ describe Sundown::Location do
     location = Sundown::Location.new('london')
     expect(location.temperature('c')).to be_kind_of(Float)
   end
+
+describe Sundown::Location do
+  it 'Refresh on Location should return nil on @weather' do
+    location = Sundown::Location.new('london')
+    expect(location.refresh).to be_false
+  end
 end
