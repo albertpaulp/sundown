@@ -53,7 +53,7 @@ location.temperature  =>  Returns temp. in Farenheit.
 location.temperature('c') =>  Returns temp. in Celsious.
 ```
 
-Each time when you call ```location.temperature``` you are reusing weather data from existing instance, so it might not be always latest it doesn't refresh weather data unless you call ```refresh``` on that object.
+Each time when you call ```location.temperature``` you are reusing weather data from existing instance, so it may not serve latest information, instance doesn't refresh weather information unless you call ```refresh``` on that object.
 
 To delete current weather information instance,
 
