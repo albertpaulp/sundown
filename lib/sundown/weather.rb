@@ -14,5 +14,10 @@ module Sundown
         location.temperature('c')
       end
     end
+
+    def self.timestamp(location)
+      location = Location.new(location)
+      location.timestamp
+    end
   end
 end

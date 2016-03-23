@@ -35,7 +35,7 @@ You can access weather data by using two different class depends on your usage, 
 
 ###Use Location class (less query calls and faster )
 
-Using location is recommended to weather information, this method does make create instance so effectively less queries and faster performance.
+Using location is recommended in a high traffic scenario, this method does make create instance the first time, resulting less queries and faster performance.
 
 Create a instance object for Location.
 
@@ -43,7 +43,9 @@ Create a instance object for Location.
 location = Sundown::Location.new('location_name/woeid')
 ``` 
 
-NOTE: zip code is supported but it not recommended since it cant uniquely identify the location.
+NOTE: You can use zipcode to find information but make sure you put country before zip code.
+eg. 'india 680689'
+
 ```ruby
 location.temperature  =>  Returns temp. in Farenheit.
 ```
@@ -51,22 +53,27 @@ location.temperature  =>  Returns temp. in Farenheit.
 location.temperature('c') =>  Returns temp. in Celsious.
 ```
 
-Each time when you call ```location.temperature``` you are reusing weather data queried when you first called it, it doesn't refresh weather data unless explicitly you ```refresh``` it.
+Each time when you call ```location.temperature``` you are reusing weather data from existing instance, so it may not serve latest information, instance doesn't refresh weather information unless you call ```refresh``` on that object.
 
 To delete current weather information instance,
 
 ```
 location.refresh   =>  Deletes current weather instance.
 ```
+To get timestamp of weather information(Weather recorded time) you can call ```timestamp``` on that object.
 
-Following first method call will query new weather instance.
-
-###Use Weather class (No caching, slower)
-
-Whenever you call this method, a query will be fired to find temperature, meaning you can only call this 2K/day. This method will return latest weather information, also this method takes more time as it needs to fetch weather information from Yahoo API.
+To get current weather timestamp,
 
 ```
-temperature = Sundown::Weather.temperature('zip/location_name/woeid')
+location.timestamp   =>  Deletes current weather instance.
+```
+
+###Use Weather class (Fires query each time, less perfomance)
+
+Whenever you call this method, a query will be fired to find weather information, meaning you can only call this 2K/day(due to 2k/day limit from Yahoo). This method will return latest weather information, also this method takes more time as it needs to fetch weather information from Yahoo API.
+
+```
+temperature = Sundown::Weather.temperature('location_name/woeid')
 ```
 
 Use parameter 'c' to get temperature in Celsius.
