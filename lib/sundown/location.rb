@@ -6,11 +6,12 @@ module Sundown
     end
 
     def temperature(degree = 'f')
-      if degree == 'f'
-        weather['query']['results']['channel']['item']['condition']['temp'].to_f
-      else
+      if degree == 'c'
         (weather['query']['results']['channel']['item']['condition']['temp']
                                                            .to_f - 32) * 0.5556
+      else
+        weather['query']['results']['channel']['item']['condition']['temp']
+                                                           .to_f
       end
     end
 
