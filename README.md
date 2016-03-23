@@ -40,9 +40,10 @@ Using location is recommended to weather information, this method does make crea
 Create a instance object for Location.
 
 ```ruby
-location = Sundown::Location.new('zip/location_name/woeid')
+location = Sundown::Location.new('location_name/woeid')
 ``` 
 
+NOTE: zip code is supported but it not recommended since it cant uniquely identify the location.
 ```ruby
 location.temperature  =>  Returns temp. in Farenheit.
 ```
