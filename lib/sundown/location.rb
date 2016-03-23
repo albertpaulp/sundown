@@ -15,7 +15,8 @@ module Sundown
       end
     end
 
-    def humidity
+    def timestamp
+      weather['query']['results']['channel']['item']['condition']['date']
     end
 
     def refresh
