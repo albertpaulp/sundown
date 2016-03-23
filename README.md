@@ -40,7 +40,7 @@ Using location is recommended in a high traffic scenario, this method does make 
 Create a instance object for Location.
 
 ```ruby
-location = Sundown::Location.new('location_name/woeid')
+location = Sundown::Location.new('location_name')
 ``` 
 
 NOTE: You can use zipcode to find information but make sure you put country before zip code.
@@ -73,7 +73,7 @@ location.timestamp   =>  Deletes current weather instance.
 Whenever you call this method, a query will be fired to find weather information, meaning you can only call this 2K/day(due to 2k/day limit from Yahoo). This method will return latest weather information, also this method takes more time as it needs to fetch weather information from Yahoo API.
 
 ```
-temperature = Sundown::Weather.temperature('location_name/woeid')
+temperature = Sundown::Weather.temperature('location_name')
 ```
 
 Use parameter 'c' to get temperature in Celsius.
