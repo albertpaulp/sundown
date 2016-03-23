@@ -62,7 +62,7 @@ location.refresh   =>  Deletes current weather instance.
 ```
 To get timestamp of weather information(Weather recorded time) you can call ```timestamp``` on that object.
 
-To delete current weather timestamp,
+To get current weather timestamp,
 
 ```
 location.timestamp   =>  Deletes current weather instance.
@@ -70,7 +70,7 @@ location.timestamp   =>  Deletes current weather instance.
 
 ###Use Weather class (Fires query each time, less perfomance)
 
-Whenever you call this method, a query will be fired to find temperature, meaning you can only call this 2K/day. This method will return latest weather information, also this method takes more time as it needs to fetch weather information from Yahoo API.
+Whenever you call this method, a query will be fired to find weather information, meaning you can only call this 2K/day(due to 2k/day limit from Yahoo). This method will return latest weather information, also this method takes more time as it needs to fetch weather information from Yahoo API.
 
 ```
 temperature = Sundown::Weather.temperature('location_name/woeid')
